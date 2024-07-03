@@ -636,7 +636,7 @@ if ($search_availability) {
 	$sql .= " AND p.fk_availability IN (".$db->sanitize($db->escape($search_availability)).')';
 }
 if (empty($arrayfields['s.name_alias']['checked']) && $search_societe) {
-	$sql .= natural_search(array("s.nom", "s.name_alias"), $search_societe);
+	$sql .= natural_search(array("s.nom", "s.name_alias", "s.code_client"), $search_societe);
 } else {
 	if ($search_societe) {
 		$sql .= natural_search('s.nom', $search_societe);
